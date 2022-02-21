@@ -88,7 +88,7 @@ app.get('/foods',(req,resp) =>{
  *            $ref: "#definitions/foodsPut"
  *    responses: 
  *      200:
- *       description: A successfull response
+ *       description: Successfull!
  * definitions:
  *   foodsPut:
  *     type: object
@@ -160,7 +160,7 @@ app.put('/foods', (req,resp) =>{
  *            $ref: "#definitions/foodsPost"
  *    responses:
  *      200:
- *       description: A successfull response
+ *       description: Successfull!
  * definitions:
  *   foodsPost:
  *     type: object
@@ -222,7 +222,7 @@ app.post('/foods',(req,resp) =>{
  *        $ref: "#/definitions/foodsDelete"
  *    responses: 
  *      200:
- *       description: A successfull response
+ *       description: Successfull!
  * definitions:
  *   foodsDelete:
  *     type: object
@@ -278,7 +278,7 @@ app.delete('/foods',(req,resp) =>{
  *            $ref: "#definitions/foodsPatch"
  *    responses:
  *      200:
- *       description: A successfull response
+ *       description: Successfull!
  * definitions:
  *   foodsPatch:
  *     type: object
