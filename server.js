@@ -342,5 +342,5 @@ app.patch('/foods',(req,resp) =>{
 
 
 app.listen(port, ()=>{
-    console.log(`Server running at http://137.184.62.170:${port}`);
+    console.log(`The server running at http://137.184.62.170:${port}`);
 });
