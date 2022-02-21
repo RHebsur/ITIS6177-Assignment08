@@ -66,7 +66,7 @@ app.get('/foods',(req,resp) =>{
 
 /**
  * @swagger
- * /agents:
+ * /foods:
  *  put:
  *    description: Update foods
  *    consumes: 
@@ -88,7 +88,7 @@ app.get('/foods',(req,resp) =>{
  *            $ref: "#definitions/foodsPut"
  *    responses: 
  *      200:
- *       description: Successfull!
+ *       description: Successful!
  * definitions:
  *   foodsPut:
  *     type: object
@@ -100,7 +100,7 @@ app.get('/foods',(req,resp) =>{
  *     properties:
  *       item_id:
  *         type: string
- *         example: 10
+ *         example: 6
  *       item_name:
  *         type: string
  *         example: Sandwich
@@ -112,7 +112,7 @@ app.get('/foods',(req,resp) =>{
  *         example: 16
 */
 app.put('/foods', (req,resp) =>{
-    pool.query(`update sample.foods set item_name = '${req['body'].item_name}',  item_unit = '${req['body'].item_unit}', company_id  = '${req['body'].company_id}' where item_id = '${req['body'].itemId}'`).then(res => {
+    pool.query(`update sample.foods set item_name = '${req['body'].item_name}',  item_unit = '${req['body'].item_unit}', company_id  = '${req['body'].company_id}' where item_id = '${req['body'].item_id}'`).then(res => {
                 console.log(res.affectedRows);
                 if(res.affectedRows > 0)
                 {
@@ -140,7 +140,7 @@ app.put('/foods', (req,resp) =>{
  * @swagger
  * /foods:
  *  post:
- *    description: Update foods
+ *    description: Update food items
  *    consumes:
  *    - application/json
  *    produces:
@@ -184,7 +184,7 @@ app.put('/foods', (req,resp) =>{
  *         example: 17
 */
 app.post('/foods',(req,resp) =>{
-    pool.query(`insert into sample.foods values ('${req['body'].item_id}', '${req['body'].item_name}', '${req['body'].item_unit}', '${req['body'].company_id}'`).then(res => {
+    pool.query(`insert into sample.foods values ('${req['body'].item_id}', '${req['body'].item_name}', '${req['body'].item_unit}', '${req['body'].company_id}')`).then(res => {
                console.log(res);
                  if(res.affectedRows > 0){
                         resp.statusCode = 200;
@@ -222,7 +222,7 @@ app.post('/foods',(req,resp) =>{
  *        $ref: "#/definitions/foodsDelete"
  *    responses: 
  *      200:
- *       description: Successfull!
+ *       description: Successful!
  * definitions:
  *   foodsDelete:
  *     type: object
@@ -258,7 +258,7 @@ app.delete('/foods',(req,resp) =>{
  * @swagger
  * /foods:
  *  patch:
- *    description: updates or inserts food item
+ *    description: update or insert food item
  *    consumes:
  *    - application/json
  *    produces:
@@ -278,7 +278,7 @@ app.delete('/foods',(req,resp) =>{
  *            $ref: "#definitions/foodsPatch"
  *    responses:
  *      200:
- *       description: Successfull!
+ *       description: Successful!
  * definitions:
  *   foodsPatch:
  *     type: object
@@ -311,7 +311,7 @@ app.patch('/foods',(req,resp) =>{
                         resp.send(res);
                 }
                 else{
-                    pool.query(`insert into sample.foods values('${req['body'].item_id}', '${req['body'].item_name}', '${req['body'].item_unit}', '${req['body'].company_id}'`).then(res1 => {
+                    pool.query(`insert into sample.foods values('${req['body'].item_id}', '${req['body'].item_name}', '${req['body'].item_unit}', '${req['body'].company_id}')`).then(res1 => {
                         if(res1.affectedRows > 0)
                         {
                             resp.statusCode = 200;                 
